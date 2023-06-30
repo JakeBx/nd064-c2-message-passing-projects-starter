@@ -66,7 +66,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push FE
         uses: docker/build-push-action@v2
         with:
           context: ./modules/frontend
@@ -74,3 +74,21 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: jaysney/udaconnect:frontend
+      -
+        name: Build and push Locs
+        uses: docker/build-push-action@v2
+        with:
+          context: ./modules/location-api
+          file: ./modules/location-api/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: jaysney/udaconnect:locations
+      -
+        name: Build and push Pers
+        uses: docker/build-push-action@v2
+        with:
+          context: ./modules/person-api
+          file: ./modules/person-api/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: jaysney/udaconnect:person
