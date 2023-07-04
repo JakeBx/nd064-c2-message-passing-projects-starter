@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "2919b8f9-7dd1-45bc-b219-7b946888dbcc",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28317130"
+	},
+	"item": [
+		{
+			"name": "Location",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitude\": \"37.553441\",\r\n    \"person_id\": 1,\r\n    \"id\": 55,\r\n    \"latitude\": \"-122.290524\",\r\n    \"creation_time\": \"2020-08-18T10:37:06\"\r\n}"
+				},
+				"url": "http://127.0.0.1:5000/person-api/locations"
+			},
+			"response": []
+		},
+		{
+			"name": "Location Kubes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitude\": \"37.553441\",\r\n    \"person_id\": 5,\r\n    \"latitude\": \"-122.290524\"\r\n}"
+				},
+				"url": "http://127.0.0.1:30003/person-api/locations"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/person-api/locations/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"person-api",
+						"locations",
+						"1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "55",
+							"disabled": true
+						},
+						{
+							"key": "person_id",
+							"value": "6",
+							"disabled": true
+						},
+						{
+							"key": "longitude",
+							"value": "37.5534409999999994",
+							"disabled": true
+						},
+						{
+							"key": "latitude",
+							"value": "-153.2905240000000049",
+							"disabled": true
+						},
+						{
+							"key": "creation_time",
+							"value": "2020-08-15 10:37:06.000000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "persons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:30001/person-api/persons"
+			},
+			"response": []
+		},
+		{
+			"name": "persons/person",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Locations",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -1,9 +1,23 @@
 # UdaConnect
-## TODO
 
-1. Convert location REST to gRPC
-2. Refactor kafka consumer
-3. Setup Postman stuff
+## Get Running
+
+Apply the mainfests
+
+    kubectl apply -f deployments/
+
+On kafka pod:
+
+    kubectl exec -it <<pod name>> bash
+    kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic location-events
+    kafka-console-consumer --bootstrap-server localhost:9092 --topic location-events
+
+You may need to delete and restart the pods that need kafka if they have crashed because there was no topic
+
+## References
+
+https://blog.datumo.io/setting-up-kafka-on-kubernetes-an-easy-way-26ae150b9ca8
+https://github.com/udacity/nd064-c2-message-passing-exercises
 
 ## Overview
 ### Background
