@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 import json
 
 from app.udaconnect.models import Connection, Location, Person
@@ -20,10 +21,10 @@ DATE_FORMAT = "%Y-%m-%d"
 api = Namespace("UdaConnect", description="Connections via geolocation.")  # noqa
 
 
-TOPIC_NAME = 'location-events'
-KAFKA_SERVER = 'localhost:9092'
+TOPIC_NAME = os.environ["KAFKA_TOPIC"]
+KAFKA_SERVER = os.environ['KAFKA_SERVER']
 
-producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
+producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER, api_version=(3,5,0))
 
 
 @api.route("/locations")

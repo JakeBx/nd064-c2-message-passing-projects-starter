@@ -31,9 +31,9 @@ spec:
         service: udaconnect-location-consumer
     spec:
       containers:
-      - image: jaysney/udaconnect:locations-consumer
+      - image: locations-consumer
         name: udaconnect-location-consumer
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         env:
         - name: DB_USERNAME
           valueFrom:

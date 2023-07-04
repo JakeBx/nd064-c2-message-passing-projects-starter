@@ -29,7 +29,7 @@ conn = engine.connect()
 # DATE_FORMAT = "%Y-%m-%d"
 TOPIC_NAME = 'location-events'
 KAFKA_SERVER = 'localhost:9092'
-consumer = KafkaConsumer(TOPIC_NAME)
+consumer = KafkaConsumer(TOPIC_NAME, api_version=(3,5,0))
 
 
 while True:
