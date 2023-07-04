@@ -24,7 +24,7 @@ api = Namespace("UdaConnect", description="Connections via geolocation.")  # noq
 TOPIC_NAME = os.environ["KAFKA_TOPIC"]
 KAFKA_SERVER = os.environ['KAFKA_SERVER']
 
-producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER, api_version=(3,5,0))
+producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 
 
 @api.route("/locations")
