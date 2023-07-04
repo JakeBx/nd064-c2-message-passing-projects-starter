@@ -31,9 +31,9 @@ spec:
         service: udaconnect-location-api
     spec:
       containers:
-      - image: jaysney/udaconnect:location-api
+      - image: jaysney/udaconnect:locations
         name: udaconnect-location-api
-        imagePullPolicy: AlwaysPull
+        imagePullPolicy: Always
         env:
         - name: DB_USERNAME
           valueFrom:

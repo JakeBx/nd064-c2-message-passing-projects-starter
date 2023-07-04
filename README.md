@@ -3,6 +3,7 @@
 
 1. Convert location REST to gRPC
 2. Refactor kafka consumer
+3. Setup Postman stuff
 
 ## Overview
 ### Background

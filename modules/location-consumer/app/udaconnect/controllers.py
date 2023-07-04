@@ -1,19 +1,19 @@
-from datetime import datetime
-
-from app.udaconnect.models import Connection, Location, Person
-from app.udaconnect.schemas import (
-    ConnectionSchema,
-    LocationSchema,
-    PersonSchema,
-)
-from app.udaconnect.services import LocationService, PersonService
-from flask import request
-from flask_accepts import accepts, responds
-from flask_restx import Namespace, Resource
-from typing import Optional, List
+# from datetime import datetime
+#
+# from app.udaconnect.models import Connection, Location, Person
+# from app.udaconnect.schemas import (
+#     ConnectionSchema,
+#     LocationSchema,
+#     PersonSchema,
+# )
+# from app.udaconnect.services import LocationService, PersonService
+# from flask import request
+# from flask_accepts import accepts, responds
+# from flask_restx import Namespace, Resource
+# from typing import Optional, List
 from kafka import KafkaConsumer
 
-DATE_FORMAT = "%Y-%m-%d"
+# DATE_FORMAT = "%Y-%m-%d"
 TOPIC_NAME = 'location-events'
 KAFKA_SERVER = 'localhost:9092'
 consumer = KafkaConsumer(TOPIC_NAME)
