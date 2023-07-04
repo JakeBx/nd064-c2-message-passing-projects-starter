@@ -26,22 +26,21 @@ SQLALCHEMY_DATABASE_URI = f"postgresql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 conn = engine.connect()
 
-# DATE_FORMAT = "%Y-%m-%d"
-TOPIC_NAME = 'location-events'
-KAFKA_SERVER = 'localhost:9092'
-consumer = KafkaConsumer(TOPIC_NAME)
+TOPIC_NAME = os.environ['KAFKA_TOPIC']
+KAFKA_SERVER = os.environ['KAFKA_SERVER']
+consumer = KafkaConsumer(TOPIC_NAME, bootstrap_servers=KAFKA_SERVER)
 
 
-while True:
-    for message in consumer:
-        payload = json.loads(message.value)
-        person_id = payload["person_id"]
-        latitude = payload["latitude"]
-        longitude = payload["longitude"]
-        insert = "INSERT INTO location (person_id, coordinate) VALUES ({}, ST_Point({}, {}))" \
-            .format(person_id, latitude, longitude)
+# while True:
+for message in consumer:
+    payload = json.loads(message.value.decode('utf-8'))
+    person_id = payload["person_id"]
+    latitude = payload["latitude"]
+    longitude = payload["longitude"]
+    insert = "INSERT INTO location (person_id, coordinate) VALUES ({}, ST_Point({}, {}))" \
+        .format(person_id, latitude, longitude)
 
-        print(insert)
-        conn.execute(insert)
+    print(insert)
+    conn.execute(insert)
 
-        print(payload)
+    print(payload)

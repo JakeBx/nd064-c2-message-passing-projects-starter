@@ -1,0 +1,3 @@
+Refactor out the rest apis for person and connections but maintain the rest interface for use with the web app
+Use a strategy of  grpc migration for location creation as this is high traffic and it is worth the effort for the performance
+Keep a rest API for location and have multiple interfaces for backwards capability, introduce a message broker to deal with this and also to deal with volume

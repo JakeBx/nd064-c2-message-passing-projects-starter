@@ -158,5 +158,7 @@ Your architecture diagram should focus on the services and how they talk to one 
 * The starter project uses Python Flask. Flask doesn't work well with `asyncio` out-of-the-box. Consider using `multiprocessing` to create threads for asynchronous behavior in a standard Flask application.
 
 ## Kafka
+On kafka pod:
 
     kafka-topics --create --bootstrap-server localhost:29092 --replication-factor 1 --partitions 1 --topic location-events
+    kafka-console-consumer --bootstrap-server localhost:29092 --topic location-events
