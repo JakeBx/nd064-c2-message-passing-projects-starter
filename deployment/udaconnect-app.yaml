@@ -31,9 +31,9 @@ spec:
         service: udaconnect-app
     spec:
       containers:
-      - image: uda-app
+      - image: jaysney/udaconnect:frontend
         name: udaconnect-app
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "128Mi"

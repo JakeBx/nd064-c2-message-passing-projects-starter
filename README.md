@@ -160,5 +160,6 @@ Your architecture diagram should focus on the services and how they talk to one 
 ## Kafka
 On kafka pod:
 
-    kafka-topics --create --bootstrap-server localhost:29092 --replication-factor 1 --partitions 1 --topic location-events
-    kafka-console-consumer --bootstrap-server localhost:29092 --topic location-events
+    kubectl exec -it <<pod name>> bash
+    kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic location-events
+    kafka-console-consumer --bootstrap-server localhost:9092 --topic location-events

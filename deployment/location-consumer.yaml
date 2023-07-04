@@ -31,9 +31,9 @@ spec:
         service: udaconnect-location-consumer
     spec:
       containers:
-      - image: locations-consumer
+      - image: jaysney/udaconnect:locations-consumer
         name: udaconnect-location-consumer
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
 #        resources:
 #          requests:
 #            memory: "8Gi"

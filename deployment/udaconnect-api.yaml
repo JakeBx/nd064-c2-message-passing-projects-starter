@@ -31,9 +31,9 @@ spec:
         service: udaconnect-person-api
     spec:
       containers:
-      - image: person-api
+      - image: jaysney/udaconnect:person
         name: udaconnect-person-api
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         env:
         - name: DB_USERNAME
           valueFrom:

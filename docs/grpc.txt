@@ -1,0 +1,5 @@
+Do the following things:
+
+cd modeules/location-grpc
+pip install -r requirements
+python setter.py

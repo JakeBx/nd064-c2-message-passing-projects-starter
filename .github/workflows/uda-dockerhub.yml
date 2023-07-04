@@ -110,3 +110,12 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: jaysney/udaconnect:locations-grpc
+      -
+        name: Build and push connections
+        uses: docker/build-push-action@v2
+        with:
+          context: ./modules/connection-api
+          file: ./modules/connection-api/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: jaysney/udaconnect:connections

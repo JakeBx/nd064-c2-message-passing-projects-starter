@@ -31,9 +31,9 @@ spec:
         service: connection-person-api
     spec:
       containers:
-      - image: connections-api
+      - image: jaysney/udaconnect:connections
         name: connection-person-api
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         env:
         - name: DB_USERNAME
           valueFrom:
