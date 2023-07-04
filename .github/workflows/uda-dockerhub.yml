@@ -92,3 +92,12 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: jaysney/udaconnect:person
+      -
+        name: Build and push Locs Consumer
+        uses: docker/build-push-action@v2
+        with:
+          context: ./modules/location-consumer
+          file: ./modules/location-consumer/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: jaysney/udaconnect:locations-consumer
