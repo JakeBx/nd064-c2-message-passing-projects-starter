@@ -1,4 +1,5 @@
 from datetime import datetime
+import json
 
 from app.udaconnect.models import Connection, Location, Person
 from app.udaconnect.schemas import (
@@ -7,7 +8,7 @@ from app.udaconnect.schemas import (
     PersonSchema,
 )
 from app.udaconnect.services import LocationService, PersonService
-from flask import request
+from flask import request, jsonify
 from flask_accepts import accepts, responds
 from flask_restx import Namespace, Resource
 from typing import Optional, List
@@ -32,9 +33,12 @@ class LocationResource(Resource):
     @accepts(schema=LocationSchema)
     @responds(schema=LocationSchema)
     def post(self) -> Location:
-        producer.send(request.get_json())
+        payload = json.dumps(request.get_json()).encode('utf-8')
+        producer.send(TOPIC_NAME, payload)
         producer.flush()
-        return True
+
+        response = jsonify({"result": True})
+        return response
 
 
     @responds(schema=LocationSchema)

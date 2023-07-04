@@ -3,4 +3,4 @@ export DB_NAME=geoconnections
 export DB_PASSWORD=admin
 export DB_PORT=31486
 export DB_USERNAME=admin
-flask run
+python consumer.py
