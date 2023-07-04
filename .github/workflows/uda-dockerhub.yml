@@ -101,3 +101,12 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: jaysney/udaconnect:locations-consumer
+      -
+        name: Build and push Locs grpc
+        uses: docker/build-push-action@v2
+        with:
+          context: ./modules/location-grpc
+          file: ./modules/location-grpc/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: jaysney/udaconnect:locations-grpc
