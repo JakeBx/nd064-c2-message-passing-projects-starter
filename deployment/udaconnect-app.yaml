@@ -31,7 +31,7 @@ spec:
         service: udaconnect-app
     spec:
       containers:
-      - image: jaysney/udaconnect:frontend
+      - image: jaysney/uda-frontent:latest
         name: udaconnect-app
         imagePullPolicy: Always
         resources:

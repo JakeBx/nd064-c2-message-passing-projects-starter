@@ -31,7 +31,7 @@ spec:
         service: udaconnect-location-grpc
     spec:
       containers:
-      - image: jaysney/udaconnect:locations-grpc
+      - image: jaysney/uda-locations-grpc:latest
         name: udaconnect-location-grpc
         imagePullPolicy: IfNotPresent
         env:

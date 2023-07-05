@@ -13,38 +13,7 @@ on:
 ## A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   ## This workflow contains a single job called "build"
-  build-connections:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: ./modules/connection-api
-          file: ./modules/connection-api/Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: jaysney/udaconnect:connection
-
-  build-frontend:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -73,7 +42,7 @@ jobs:
           file: ./modules/frontend/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: jaysney/udaconnect:frontend
+          tags: jaysney/uda-frontent:latest
       -
         name: Build and push Locs
         uses: docker/build-push-action@v2
@@ -82,7 +51,7 @@ jobs:
           file: ./modules/location-api/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: jaysney/udaconnect:locations
+          tags: jaysney/uda-locations:latest
       -
         name: Build and push Pers
         uses: docker/build-push-action@v2
@@ -91,7 +60,7 @@ jobs:
           file: ./modules/person-api/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: jaysney/udaconnect:person
+          tags: jaysney/uda-person:latest
       -
         name: Build and push Locs Consumer
         uses: docker/build-push-action@v2
@@ -100,7 +69,7 @@ jobs:
           file: ./modules/location-consumer/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: jaysney/udaconnect:locations-consumer
+          tags: jaysney/uda-locations-consumer:latest
       -
         name: Build and push Locs grpc
         uses: docker/build-push-action@v2
@@ -109,7 +78,7 @@ jobs:
           file: ./modules/location-grpc/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: jaysney/udaconnect:locations-grpc
+          tags: jaysney/uda-locations-grpc:latest
       -
         name: Build and push connections
         uses: docker/build-push-action@v2
@@ -118,4 +87,4 @@ jobs:
           file: ./modules/connection-api/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: jaysney/udaconnect:connections
+          tags: jaysney/uda-connections:latest

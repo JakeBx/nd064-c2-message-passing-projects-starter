@@ -31,7 +31,7 @@ spec:
         service: udaconnect-location-api
     spec:
       containers:
-      - image: jaysney/udaconnect:locations
+      - image: jaysney/uda-locations:latest
         name: udaconnect-location-api
         imagePullPolicy: Always
         env:
